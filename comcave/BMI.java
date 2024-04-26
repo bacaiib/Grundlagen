@@ -9,6 +9,7 @@ public class BMI {
         float gewicht;
         float groeße;
         float BMI;
+        String geschlecht;
 
         System.out.println("Gaben Sie ihr Gewicht ein:");
         gewicht = new Scanner(System.in).nextFloat();
