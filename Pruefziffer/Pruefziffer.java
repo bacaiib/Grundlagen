@@ -38,11 +38,13 @@ public class Pruefziffer {
     }
 
     public static void main(String[] args) {
-        System.out.println( berechnePruefziffer("625843197"));
-        System.out.println( pruefePruefziffer ("6258431979"));
+        System.out.println( berechnePruefziffer("332412563"));
+        System.out.println( pruefePruefziffer ("3324125636"));
 
     }
 
 
 }
-
+/*
+625843197
+        6258431979 */
