@@ -41,7 +41,7 @@ public class WinArtikelAnzeigen extends JFrame {
 	
 	private void fillTable() {
 		//ArrayList<Artikel> liste = Datenbank.getArtikelListe();
-		ArrayList<Artikel> liste = Datenbank.getArtikelListe();
+		//ArrayList<Artikel> liste = Datenbank.getArtikelListe();
 
 		Vector<String> columnNames = new Vector<>();
 		columnNames.add("Artikel-ID");

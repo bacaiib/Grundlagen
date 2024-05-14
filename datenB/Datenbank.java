@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Datenbank {
 
-	public static void artikelSpeichern(Artikel artikel) {
+	public static boolean artikelSpeichern(Artikel artikel) {
 		String conString = "jdbc:mysql://localhost:3306/artikel";
 		String user = "root";
 		String password = "";
@@ -23,8 +23,10 @@ public class Datenbank {
 			stat.setString(2, artikel.getBezeichnung());
 			stat.setDouble(3, artikel.getPreis());
 			stat.execute();
+			return true;
 		}catch(Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 	}
 	

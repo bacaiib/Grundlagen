@@ -1,13 +1,11 @@
 package datenB;
 
+import cc.Check;
+
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -76,11 +74,31 @@ public class WinArtikelNeu extends JFrame implements ActionListener {
 		}
 	}
 	protected void do_btnSpeichern_actionPerformed(ActionEvent e) {
+		if (!Check.isInteger(tfNr.getText())){
+			JOptionPane.showMessageDialog(this, "Ungültige Artikelnummer");
+			return;
+		}
+		if (!Check.isName(tfBezeichnung.getText())){
+			JOptionPane.showMessageDialog(this, "Ungültige Bezeichnung");
+			return;
+		}
+		if (!Check.isDouble(tfPreis.getText())){
+			JOptionPane.showMessageDialog(this, "Ungültiger Preis");
+			return;
+		}
+
 		Artikel artikel = new Artikel();
 		artikel.setNr( Integer.parseInt( tfNr.getText() ) );
 		artikel.setBezeichnung( tfBezeichnung.getText() );
-		artikel.setPreis( Double.parseDouble( tfPreis.getText() ) );
+		artikel.setPreis( Double.parseDouble( tfPreis.getText().replace(",", ".") ) );
 		
-		Datenbank.artikelSpeichern(artikel);
+		if (Datenbank.artikelSpeichern(artikel)){
+			JOptionPane.showMessageDialog(this, "Artikel gespeichert");
+			tfNr.setText("");
+			tfBezeichnung.setText("");
+			tfPreis.setText("");
+		} else  {
+			JOptionPane.showMessageDialog(this, "Fehler");
+		}
 	}
 }
