@@ -4,27 +4,24 @@ public class Student {
 
 
 
-    private static int studentID;
+    private int studentID;
     private String studentName;
     private int age;
     private String subjectOfStudy;
 
-//    public Student(int studentID, String studentName, int age, String subjectOfStudy) {
-//        this.studentID = studentID;
-//        this.studentName = studentName;
-//        this.age = age;
-//        this.subjectOfStudy = subjectOfStudy;
-//    }
-
-    public Student(){
-
+    public Student(int studentID, String studentName, int age, String subjectOfStudy) {
+        this.studentID = studentID;
+        this.studentName = studentName;
+        this.age = age;
+        this.subjectOfStudy = subjectOfStudy;
     }
+
 
 
 
     @Override
     public String toString() {
-        return this.studentID + " " + this.studentName + " " + this.age + " " + this.subjectOfStudy;
+        return "ID: "+ studentID + " " + "Name: " + studentName + " Alter: " + age + " Fach: " + subjectOfStudy;
     }
 
     public String getSubjectOfStudy() {
@@ -51,7 +48,7 @@ public class Student {
         this.studentName = studentName;
     }
 
-    public static int getStudentID() {
+    public int getStudentID() {
         return studentID;
     }
 
